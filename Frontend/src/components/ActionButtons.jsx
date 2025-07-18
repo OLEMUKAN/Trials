@@ -1,7 +1,16 @@
 import React from 'react';
 
+const ActionButton = ({ onClick, disabled, children, className }) => (
+  <button
+    onClick={onClick}
+    className={`w-full px-4 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 disabled:bg-gray-800 disabled:text-gray-500 transition-colors duration-200 ease-in-out ${className}`}
+    disabled={disabled}
+  >
+    {children}
+  </button>
+);
+
 const ActionButtons = ({
-  onLoadModel,
   onGenerateSubtitles,
   onLoadVideoInfo,
   onDownloadVideo,
@@ -9,49 +18,22 @@ const ActionButtons = ({
   onClear,
   loading
 }) => (
-  <div className="flex flex-wrap gap-4 mb-6">
-    <button
-      onClick={onLoadModel}
-      className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-      disabled={loading}
-    >
-      Load AI Model
-    </button>
-    <button
-      onClick={onGenerateSubtitles}
-      className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-      disabled={loading}
-    >
+  <div className="grid grid-cols-2 gap-4 mb-6">
+    <ActionButton onClick={onGenerateSubtitles} disabled={loading} className="bg-blue-600 hover:bg-blue-700 col-span-2">
       Generate Subtitles
-    </button>
-    <button
-      onClick={onLoadVideoInfo}
-      className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700"
-      disabled={loading}
-    >
-      Load Video & Get Qualities
-    </button>
-    <button
-      onClick={onDownloadVideo}
-      className="px-4 py-2 bg-yellow-600 text-white rounded hover:bg-yellow-700"
-      disabled={loading}
-    >
+    </ActionButton>
+    <ActionButton onClick={onLoadVideoInfo} disabled={loading} className="bg-purple-600 hover:bg-purple-700">
+      Load Video Info
+    </ActionButton>
+    <ActionButton onClick={onDownloadVideo} disabled={loading} className="bg-yellow-600 hover:bg-yellow-700">
       Download Video
-    </button>
-    <button
-      onClick={onDownloadSubtitles}
-      className="px-4 py-2 bg-pink-600 text-white rounded hover:bg-pink-700"
-      disabled={loading}
-    >
+    </ActionButton>
+    <ActionButton onClick={onDownloadSubtitles} disabled={loading} className="bg-pink-600 hover:bg-pink-700 col-span-2">
       Download Subtitles Only
-    </button>
-    <button
-      onClick={onClear}
-      className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
-      disabled={loading}
-    >
-      Clear
-    </button>
+    </ActionButton>
+    <ActionButton onClick={onClear} disabled={loading} className="bg-red-600 hover:bg-red-700 col-span-2">
+      Clear All
+    </ActionButton>
   </div>
 );
 

@@ -9,12 +9,12 @@ const MODEL_OPTIONS = [
 ];
 
 const ModelSelector = ({ value, onChange }) => (
-  <div className="mb-6 p-4 bg-gray-800 rounded-lg shadow">
-    <label className="block text-white font-semibold mb-2">AI Model Size</label>
+  <div className="mb-4">
+    <label className="block text-gray-300 font-semibold mb-2">AI Model Size</label>
     <select
       value={value}
       onChange={e => onChange(e.target.value)}
-      className="w-full p-2 rounded bg-gray-700 text-gray-200 border border-gray-600"
+      className="w-full p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
     >
       {MODEL_OPTIONS.map(opt => (
         <option key={opt.value} value={opt.value}>{opt.label}</option>
