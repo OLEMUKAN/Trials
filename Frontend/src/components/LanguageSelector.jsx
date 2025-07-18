@@ -15,12 +15,12 @@ const LANGUAGES = [
 ];
 
 const LanguageSelector = ({ value, onChange }) => (
-  <div className="mb-6 p-4 bg-gray-800 rounded-lg shadow">
-    <label className="block text-white font-semibold mb-2">Language</label>
+  <div className="mb-4">
+    <label className="block text-gray-300 font-semibold mb-2">Language</label>
     <select
       value={value}
       onChange={e => onChange(e.target.value)}
-      className="w-full p-2 rounded bg-gray-700 text-gray-200 border border-gray-600"
+      className="w-full p-3 rounded-lg bg-gray-700 text-gray-200 border border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
     >
       {LANGUAGES.map(lang => (
         <option key={lang.value} value={lang.value}>{lang.label}</option>
