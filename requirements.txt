@@ -1,0 +1,13 @@
+yt-dlp>=2023.12.30
+Pillow>=10.0.0
+requests>=2.31.0
+openai-whisper
+moviepy
+pydub
+torch
+transformers
+# FFmpeg is required for audio extraction and video processing
+# Install from: https://ffmpeg.org/download.html
+# On Windows: Download from https://www.gyan.dev/ffmpeg/builds/
+# On macOS: brew install ffmpeg
+# On Linux: sudo apt install ffmpeg
