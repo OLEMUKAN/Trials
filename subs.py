@@ -132,29 +132,29 @@ class AISubtitleGenerator:
         browse_output_btn = ttk.Button(main_frame, text="Browse", command=self.browse_output)
         browse_output_btn.grid(row=6, column=2, padx=(5, 0), pady=5)
         
+        # Progress Bar (move above buttons)
+        self.progress = ttk.Progressbar(main_frame, mode='indeterminate')
+        self.progress.grid(row=7, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=10)
+
         # Buttons Frame
         buttons_frame = ttk.Frame(main_frame)
-        buttons_frame.grid(row=7, column=0, columnspan=3, pady=20)
-        
+        buttons_frame.grid(row=8, column=0, columnspan=3, pady=20)
+
         # Load Model Button
         load_model_btn = ttk.Button(buttons_frame, text="Load AI Model", command=self.load_model)
         load_model_btn.pack(side=tk.LEFT, padx=5)
-        
+
         # Generate Subtitles Button
         generate_btn = ttk.Button(buttons_frame, text="Generate Subtitles", command=self.generate_subtitles)
         generate_btn.pack(side=tk.LEFT, padx=5)
-        
+
         # Clear Button
         clear_btn = ttk.Button(buttons_frame, text="Clear", command=self.clear_fields)
         clear_btn.pack(side=tk.LEFT, padx=5)
-        
-        # Progress Bar
-        self.progress = ttk.Progressbar(main_frame, mode='indeterminate')
-        self.progress.grid(row=7, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=10)
-        
+
         # Status Label
         self.status_label = ttk.Label(main_frame, text="Ready - Select a video file to begin")
-        self.status_label.grid(row=8, column=0, columnspan=3, pady=5)
+        self.status_label.grid(row=9, column=0, columnspan=3, pady=5)
         
         # Log Text Area
         ttk.Label(main_frame, text="Processing Log:").grid(row=9, column=0, sticky=tk.W, pady=(10, 5))
